@@ -16,7 +16,7 @@ class MorseCodeTranslator:
                 for char in word:
                     try:
                         morse_code = cls.get_morse_code(char)
-                        Speaker.play(morse_code)
+                        Speaker.decode(morse_code)
                         time.sleep(cls.TIME_BETWEEN_CHAR)
                     except:
                         print(repr(char) +

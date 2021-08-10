@@ -9,7 +9,7 @@ class Speaker:
     dash_sound_duration = dot_sound_duration * 3
 
     @classmethod
-    def play(cls, morse_code):
+    def decode(cls, morse_code):
         for char in morse_code:
             if char == ".":
                 Thread(target=cls.play_dot_sound).start()

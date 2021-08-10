@@ -2,6 +2,7 @@ import sys
 import time
 from MorseCodeDictionnary import *
 from Speaker import *
+from FlashLight import *
 
 
 class MorseCodeTranslator:
@@ -17,6 +18,7 @@ class MorseCodeTranslator:
                     try:
                         morse_code = cls.get_morse_code(char)
                         Speaker.decode(morse_code)
+                        FlashLight.decode(morse_code)
                         time.sleep(cls.TIME_BETWEEN_CHAR)
                     except:
                         print(repr(char) +

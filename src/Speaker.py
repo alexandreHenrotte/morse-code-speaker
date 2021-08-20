@@ -4,19 +4,18 @@ from ArduinoBoard import *
 
 class Speaker:
 
-    dot_sound_duration = 0.2  # Seconds
+    TIME_BETWEEN_DASH_AND_DOT = 0.2
+    dot_sound_duration = 0.1  # Seconds
     dash_sound_duration = dot_sound_duration * 3
 
     @classmethod
     def decode(cls, morse_code):
         for char in morse_code:
             if char == ".":
-                Thread(target=cls.play_dot_sound).start()
-                # cls.play_dot_sound()
+                cls.play_dot_sound()
 
             elif char == "-":
-                Thread(target=cls.play_dash_sound).start()
-                # cls.play_dash_sound()
+                cls.play_dash_sound()
 
     @classmethod
     def play_dot_sound(cls):
@@ -32,3 +31,4 @@ class Speaker:
         while time.time() < t_end:
             ArduinoBoard.buzzer.write(True)
         ArduinoBoard.buzzer.write(False)
+        time.sleep(cls.TIME_BETWEEN_DASH_AND_DOT)

@@ -7,7 +7,7 @@ from ArduinoBoard import *
 
 class MorseCodeTranslator:
 
-    TIME_BETWEEN_CHAR = 1.2
+    TIME_BETWEEN_CHAR = 0.8
 
     @classmethod
     def translate_from_text_file(cls, filepath):
